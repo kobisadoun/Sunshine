@@ -26,6 +26,7 @@ public abstract class PollingCheck {
     private long mTimeout = 3000;
 
     public PollingCheck() {
+        //
     }
 
     public PollingCheck(long timeout) {
