@@ -59,13 +59,13 @@ public class MainActivity extends ActionBarActivity {
       //  SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         String locationSetting = Utility.getPreferredLocation(this);
-      //  String locationSetting = sharedPreferences.getString(getResources().getString(R.string.pref_location_key), getResources().getString(R.string.pref_location_default));
-//        Uri geoLocationUri = Uri.parse("geo:0,0?").buildUpon()
-//                .appendQueryParameter("q", locationSetting).build();
-        Uri geoLocationUri = Uri.parse(locationSetting).buildUpon().build();
-//
-//        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
-        Intent mapIntent = new Intent(this, MapsActivity.class);
+        //String locationSetting = sharedPreferences.getString(getResources().getString(R.string.pref_location_key), getResources().getString(R.string.pref_location_default));
+        Uri geoLocationUri = Uri.parse("geo:0,0?").buildUpon()
+                .appendQueryParameter("q", locationSetting).build();
+       // Uri geoLocationUri = Uri.parse(locationSetting).buildUpon().build();
+
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+//        Intent mapIntent = new Intent(this, MapsActivity.class);
         mapIntent.setData(geoLocationUri);
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);

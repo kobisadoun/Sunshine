@@ -110,7 +110,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                 locationSetting, System.currentTimeMillis());
 
         Cursor cur = getActivity().getContentResolver().query(weatherForLocationUri,
-                null, null, null, sortOrder);
+                FORECAST_COLUMNS, null, null, sortOrder);
 
         mForecastAdapter = new ForecastAdapter(getActivity(),cur, 0);
 
