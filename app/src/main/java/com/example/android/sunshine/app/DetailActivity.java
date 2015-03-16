@@ -111,6 +111,12 @@ public class DetailActivity extends ActionBarActivity {
         }
 
         @Override
+        public void onActivityCreated(Bundle savedInstanceState) {
+            getLoaderManager().initLoader(DETAIL_LOADER, null, this);
+            super.onActivityCreated(savedInstanceState);
+        }
+
+        @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             // Inflate the menu; this adds items to the action bar if it is present.
             inflater.inflate(R.menu.detailfragment, menu);
@@ -155,12 +161,6 @@ public class DetailActivity extends ActionBarActivity {
             //shareIntent.putExtra(Intent.EXTRA_TEXT, mForecastStr+"#SunshineApp");
             shareIntent.putExtra(Intent.EXTRA_TEXT, mForecast + FORECAST_SHARE_HASHING);
             return shareIntent;
-        }
-
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            getLoaderManager().initLoader(DETAIL_LOADER,null , this);
-            super.onActivityCreated(savedInstanceState);
         }
 
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
