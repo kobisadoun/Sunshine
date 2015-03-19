@@ -65,6 +65,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         private static final int COL_WEATHER_PRESSURE = 6;
         private static final int COL_WEATHER_WIND_SPEED = 7;
         private static final int COL_WEATHER_DEGREES = 8;
+        private static final int COL_WEATHER_CONDITION_ID = 9;
 
         public DetailFragment() {
             setHasOptionsMenu(true);
@@ -200,8 +201,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             String weatherDescription = data.getString(COL_WEATHER_SHORT_DESC);
             mWeatherDescriptionTextView.setText(weatherDescription);
 
-            int weatherId = data.getInt(COL_WEATHER_ID);
-            mIcon.setImageResource(R.drawable.ic_launcher);
+            int weatherId = data.getInt(COL_WEATHER_CONDITION_ID);
+            mIcon.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
 
 
             //if onCreateIoptionMenu has already happened we need to update the share intent
